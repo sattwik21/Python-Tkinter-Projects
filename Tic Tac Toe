@@ -1,0 +1,72 @@
+from tkinter import *
+from tkinter.messagebox import showinfo
+from tkinter import ttk
+def click(event):
+    global a
+    global chance
+    text = event.widget.cget("text")
+    if a==1:
+        showinfo("TIC-TOE", chance + " HAS ALREADY WON !!!")
+    if text=="" and a==0:
+        event.widget.configure(bg="yellow", text=chance,relief=SUNKEN,bd=4,font="digifacewide 18")
+        if(  (((b00.cget("text") == b01.cget("text")) and (b01.cget("text") == b02.cget("text")) and b00.cget("text")!="")  or
+            ((b10.cget("text") == b11.cget("text")) and (b11.cget("text") == b12.cget("text")) and b10.cget("text")!="") or
+            ((b20.cget("text") == b21.cget("text")) and (b21.cget("text") == b22.cget("text")) and b20.cget("text")!="") or
+            ((b00.cget("text") == b10.cget("text")) and (b10.cget("text") == b20.cget("text")) and b00.cget("text")!="") or
+            ((b01.cget("text") == b11.cget("text")) and (b11.cget("text") == b21.cget("text")) and b01.cget("text")!="") or
+            ((b02.cget("text") == b12.cget("text")) and (b12.cget("text") == b22.cget("text")) and b02.cget("text")!="") or
+            ((b11.cget("text") == b11.cget("text")) and (b11.cget("text") == b22.cget("text")) and b11.cget("text")!="") or
+            ((b02.cget("text") == b11.cget("text")) and (b11.cget("text") == b20.cget("text")) and b02.cget("text")!=""))
+            and a==0
+            ):
+            showinfo("TIC-TOE", f"CONGRATS " + chance + " YOU WIN !!!")
+            a=1
+
+        if chance=="O" and a==0:
+            chance="X"
+        elif(a==0):
+            chance="O"
+        if a==0:
+            showinfo("TIC-TOE", f"Chance is of " + chance +"!!!")
+
+
+root = Tk()
+root.geometry("240x240")
+root.title("Tic-Toe By Ratnesh")
+root.resizable(False,False)
+root
+chance= StringVar()
+a=0
+b00 = Button(bg="blue", text="", padx=30, pady=20,relief=SUNKEN,bd=4,font="digifacewide 18")
+b10 = Button(bg="blue", text="", padx=30, pady=20,relief=SUNKEN,bd=4,font="digifacewide 18")
+b20 = Button(bg="blue", text="", padx=30, pady=20,relief=SUNKEN,bd=4,font="digifacewide 18")
+b01 = Button(bg="blue", text="", padx=30, pady=20,relief=SUNKEN,bd=4,font="digifacewide 18")
+b11 = Button(bg="blue", text="", padx=30, pady=20,relief=SUNKEN,bd=4,font="digifacewide 18")
+b21 = Button(bg="blue", text="", padx=30, pady=20,relief=SUNKEN,bd=4,font="digifacewide 18")
+b02 = Button(bg="blue", text="", padx=30, pady=20,relief=SUNKEN,bd=4,font="digifacewide 18")
+b12 = Button(bg="blue", text="", padx=30, pady=20,relief=SUNKEN,bd=4,font="digifacewide 18")
+b22 = Button(bg="blue", text="", padx=30, pady=20,relief=SUNKEN,bd=4,font="digifacewide 18")
+
+b00.bind("<Button-1>", click)
+b10.bind("<Button-1>", click)
+b20.bind("<Button-1>", click)
+b01.bind("<Button-1>", click)
+b11.bind("<Button-1>", click)
+b21.bind("<Button-1>", click)
+b02.bind("<Button-1>", click)
+b12.bind("<Button-1>", click)
+b22.bind("<Button-1>", click)
+
+
+
+b00.place(anchor=NW,height=80,width=80,x=0,y=0)
+b10.place(anchor=NW,height=80,width=80,x=0,y=80)
+b20.place(anchor=NW,height=80,width=80,x=0,y=160)
+b01.place(anchor=NW,height=80,width=80,x=80,y=0)
+b11.place(anchor=NW,height=80,width=80,x=80,y=80)
+b21.place(anchor=NW,height=80,width=80,x=80,y=160)
+b02.place(anchor=NW,height=80,width=80,x=160,y=0)
+b12.place(anchor=NW,height=80,width=80,x=160,y=80)
+b22.place(anchor=NW,height=80,width=80,x=160,y=160)
+chance="O"
+root.mainloop()
